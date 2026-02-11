@@ -1,0 +1,55 @@
+/wp-admin/
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
+/.htaccess
+/error_log
+/php_error.log
+
+/wp-config.php
+/wp-config-*.php
+/.env
+/.env.*
+!/.env.example           
+
+/wp-content/uploads/
+/wp-content/blogs.dir/
+/wp-content/upgrade/
+/wp-content/backup-db/
+/wp-content/backups/
+/wp-content/cache/
+/wp-content/wflogs/
+/wp-content/ai1wm-backups/
+/*.log
+/*.logs
+/*.sql
+/*.sql.gz
+/*.zip
+/*.tar.gz
+
+/vendor/
+/node_modules/
+/composer.lock           
+/package-lock.json
+/yarn.lock
+/.DS_Store
+/Thumbs.db
+/.idea/
+/.vscode/
+/*.bak
+/*.old
+/*.tmp
+/*.temp
+
+/wp-content/*
+/wp-content/themes/*
+/wp-content/plugins/*
+# !/wp-content/themes/your-theme-name/                   
+# !/wp-content/themes/your-theme-name/**
+# !/wp-content/plugins/your-custom-plugin-name/          
+# !/wp-content/plugins/your-custom-plugin-name/**
+
+!.gitkeep
