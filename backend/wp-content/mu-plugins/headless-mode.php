@@ -104,3 +104,40 @@ add_action('wp_headers', function ($headers) {
     $headers['X-Headless-Mode'] = 'active';
     return $headers;
 });
+
+/**
+ * Security: Disable introspection & public mutations in production
+ */
+if (defined('WP_ENVIRONMENT_TYPE') && WP_ENVIRONMENT_TYPE === 'production') {
+    add_filter('graphql_should_send_introspection_query', '__return_false');
+    add_filter('graphql_access_control_allow_public_mutations', '__return_false');
+
+}
+
+add_action('graphql_register_types', function () {
+    // Reading time (calculated from content)
+    register_graphql_field('Post', 'readingTimeMinutes', [
+        'type' => 'Int',
+        'description' => 'Estimated reading time (~200 words per minute)',
+        'resolve' => function ($post) {
+            $content = get_post_field('post_content', $post->databaseId);
+            $words = str_word_count(strip_tags($content));
+            return (int) ceil($words / 200);
+        },
+    ]);
+
+    // fallback to manual excerpt if auto-generated is empty
+    register_graphql_field('Post', 'betterExcerpt', [
+        'type' => 'String',
+        'description' => 'Clean excerpt with fallback to first 55 words',
+        'resolve' => function ($post) {
+            $excerpt = get_the_excerpt($post->databaseId);
+            if (empty(trim($excerpt))) {
+                $content = get_post_field('post_content', $post->databaseId);
+                $excerpt = wp_trim_words(strip_tags($content), 55, '...');
+            }
+            return $excerpt;
+        },
+    ]);
+
+});
