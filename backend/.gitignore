@@ -45,11 +45,15 @@
 /*.temp
 
 /wp-content/*
-/wp-content/themes/*
-/wp-content/plugins/*
-# !/wp-content/themes/your-theme-name/                   
-# !/wp-content/themes/your-theme-name/**
-# !/wp-content/plugins/your-custom-plugin-name/          
-# !/wp-content/plugins/your-custom-plugin-name/**
+
+!/wp-content/mu-plugins/
+/wp-content/mu-plugins/*
+!/wp-content/mu-plugins/*.php               
+
+# !/wp-content/themes/theme-name/
+# !/wp-content/themes/theme-name/**
+
+# !/wp-content/plugins/custom-plugin-name/
+# !/wp-content/plugins/custom-plugin-name/**
 
 !.gitkeep
