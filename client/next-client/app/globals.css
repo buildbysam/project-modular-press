@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    transition-property: background-color, color;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+  }
+}
+
+@layer components {
+  a,
+  button,
+  input,
+  article,
+  div {
+    @apply transition-colors duration-300 ease-out;
+  }
+
+  header {
+    transition-property: background-color, backdrop-filter, border-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+  }
+}

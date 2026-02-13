@@ -1,5 +1,3 @@
-"use server";
-
 import { GraphQLClient } from "graphql-request";
 
 const endpoint = process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL;
@@ -13,9 +11,9 @@ if (!secret) {
   throw new Error("WP_HEADLESS_SECRET is missing from environment variables.");
 }
 
-const client = new GraphQLClient(endpoint, {
+export const client = new GraphQLClient(endpoint, {
   headers: {
-    Authorization: `Bearer ${secret}`,
+    "X-HEADLESS-SECRET": `Bearer ${secret}`,
   },
 });
 

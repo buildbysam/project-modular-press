@@ -25,7 +25,7 @@ The frontend rendering is completely disabled. All traffic is expected to go thr
 
 ```bash
 git clone https://github.com/buildbysam/project-modular-press"
-cd project-modular-press/backend
+cd project-modular-press/wordpress
 ```
 
 ### 2. Install Composer dependencies
