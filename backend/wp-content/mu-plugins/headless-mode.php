@@ -27,7 +27,7 @@ add_action('graphql_process_http_request', function () {
         );
     }
 
-    $provided_key = $_SERVER['HTTP_AUTHORIZATION'] ?? '';
+    $provided_key = $_SERVER['HTTP_X_HEADLESS_SECRET'] ?? '';
     if (strpos($provided_key, 'Bearer ') === 0) {
         $provided_key = trim(substr($provided_key, 7));
     }

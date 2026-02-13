@@ -12,6 +12,7 @@ The frontend rendering is completely disabled. All traffic is expected to go thr
 - Unnecessary `<head>` bloat removed (emojis, generator tag, oEmbed, feeds, shortlinks, etc.)
 - XML-RPC disabled
 - Environment-aware CORS (permissive only in local/development)
+- **GraphQL endpoint protected** with `X-Headless-Secret` header (secret key from `.env`)
 - Custom GraphQL fields added to `Post` type:
   - `readingTimeMinutes` — calculated from content (~200 words/min)
   - `betterExcerpt` — clean fallback when manual excerpt is missing
@@ -96,6 +97,7 @@ graphql{
 ### Production Notes
 
 - Set `WP_ENVIRONMENT_TYPE=production` on your hosting platform
+- Add HEADLESS_SECRET_KEY as a secure environment variable (never commit real value)
 - Restrict CORS origins to your real frontend domain(s) in headless-mode.php
 - Disable introspection & public mutations (already conditional)
 - Use application passwords for authenticated requests
