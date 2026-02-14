@@ -1,10 +1,10 @@
 import { GraphQLClient } from "graphql-request";
 
-const endpoint = process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL;
+const endpoint = process.env.NEXT_PUBLIC_WORDPRESS_URL;
 const secret = process.env.WP_HEADLESS_SECRET;
 
 if (!endpoint) {
-  throw new Error("NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL is missing.");
+  throw new Error("NEXT_PUBLIC_WORDPRESS_URL is missing.");
 }
 
 if (!secret) {
