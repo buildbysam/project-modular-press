@@ -7,7 +7,7 @@ WordPress serves content via **WPGraphQL**, Next.js consumes it statically and d
 
 - **WordPress as CMS only**: editors use familiar admin panel, no theme needed
 - **GraphQL**: efficient, typed queries (only fetch what you need)
-- **Next.js App Router**: server-side rendering, ISR, dynamic routes
+- **Next.js App Router**: server-side rendering, dynamic routes
 - **Protected API**: `X-Headless-Secret` header secures GraphQL endpoint
 - **Minimal footprint**: backend repo only contains config + mu-plugin
 
