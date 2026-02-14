@@ -1,4 +1,7 @@
 import { IPost } from "@/lib/types";
+import { formatDate } from "@/lib/utils";
+import { IconArrowNarrowRight } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function PostCard({ post }: { post: IPost }) {
   return (
@@ -17,19 +20,7 @@ export default function PostCard({ post }: { post: IPost }) {
         </div>
         <div className="mt-6 flex items-center text-sm font-medium text-zinc-900 dark:text-zinc-100">
           Read article
-          <svg
-            className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M5 12h14"></path>
-            <path d="m12 5 7 7-7 7"></path>
-          </svg>
+          <IconArrowNarrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
         </div>
       </article>
     </Link>
