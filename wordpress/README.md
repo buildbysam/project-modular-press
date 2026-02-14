@@ -40,31 +40,26 @@ composer install
 cp .env.example .env
 ```
 
-Edit .env with your values (adjust port/folder):
+### 4. Set up full WordPress locally
 
-### 4. Create the database
+1. Download latest WordPress from [https://wordpress.org/download/](https://wordpress.org/download/)
+2. Extract it into a folder (e.g. `wp-local`)
+3. Copy these files from this repo into the WordPress root:
+   - `.env` (from step 3)
+   - `wp-content/mu-plugins/headless-mode.php`
+   - Your custom `wp-config.php` (or use `wp-config.example.php` → rename to `wp-config.php` and fill in values)
 
-Via phpMyAdmin or CLI:
+4. Create database (phpMyAdmin or CLI):
 
 ```bash
 mysql -u root -p -e "CREATE DATABASE wordpress_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
 ```
 
-### 5. Run WordPress installer
+5. Run installer: `http://localhost:8000` (adjust port)
+6. Install & activate WPGraphQL plugin
+7. Settings → Permalinks → Post name → Save Changes
 
-Open in browser:
-
-```text
-http:localhost:8000
-```
-
-### 6. Install & activate WPGraphQL
-
-1. Log in to `/wp-admin`
-2. Plugins → Add New → search WPGraphQL → Install → Activate
-3. Settings → Permalinks → select Post name → Save Changes
-
-### 7. Verify GraphQL endpoint
+### 5. Verify GraphQL endpoint
 
 Open:
 

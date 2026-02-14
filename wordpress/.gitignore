@@ -13,7 +13,7 @@
 /wp-config-*.php
 /.env
 /.env.*
-!/.env.example           
+!/.env.example
 
 /wp-content/uploads/
 /wp-content/blogs.dir/
@@ -32,7 +32,7 @@
 
 /vendor/
 /node_modules/
-/composer.lock           
+/composer.lock
 /package-lock.json
 /yarn.lock
 /.DS_Store
@@ -48,12 +48,8 @@
 
 !/wp-content/mu-plugins/
 /wp-content/mu-plugins/*
-!/wp-content/mu-plugins/*.php               
+!/wp-content/mu-plugins/*.php
 
-# !/wp-content/themes/theme-name/
-# !/wp-content/themes/theme-name/**
-
-# !/wp-content/plugins/custom-plugin-name/
-# !/wp-content/plugins/custom-plugin-name/**
+!wp-config.example.php
 
 !.gitkeep
