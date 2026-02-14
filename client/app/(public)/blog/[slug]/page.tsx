@@ -13,6 +13,7 @@ const GET_ALL_POST_SLUGS = `
     }
   }
 `;
+
 const SINGLE_POST_QUERY = `
   query SinglePost($slug: ID!) {
     post(id: $slug, idType: SLUG) {
@@ -56,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   return {
     title: `${post.title} | Modular Press`,
-    description: post.content,
+    description: post.betterExcerpt,
   };
 }
 
