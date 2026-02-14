@@ -39,7 +39,7 @@ Edit .env.local with your values:
 
 ```env
 # Your WordPress GraphQL endpoint
-NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL=http://localhost:8000/graphql
+NEXT_PUBLIC_WORDPRESS_URL=http://localhost:8000/
 
 # Secret key (must match HEADLESS_SECRET_KEY in WordPress .env)
 WP_HEADLESS_SECRET=your-strong-random-secret-here-64-chars-min

@@ -1,6 +1,12 @@
-export default function LoginPage() {
-  const isLoading = false;
-  const error = "";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import LoginForm from "./_components/login-form";
+
+export default async function LoginPage() {
+  const token = (await cookies()).get("wp_token")?.value;
+  if (token) {
+    redirect("/dashboard");
+  }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 dark:bg-zinc-950">
@@ -13,39 +19,7 @@ export default function LoginPage() {
             Enter your credentials to continue
           </p>
         </div>
-
-        <form className="space-y-4">
-          <div>
-            <label className="mb-1 block text-xs font-medium text-zinc-700 dark:text-zinc-300">
-              Username
-            </label>
-            <input
-              type="text"
-              className="w-full rounded-md border border-zinc-300 bg-transparent px-3 py-2 text-sm placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:focus:border-zinc-100 dark:focus:ring-zinc-100"
-              placeholder="admin"
-            />
-          </div>
-          <div>
-            <label className="mb-1 block text-xs font-medium text-zinc-700 dark:text-zinc-300">
-              Password
-            </label>
-            <input
-              type="password"
-              className="w-full rounded-md border border-zinc-300 bg-transparent px-3 py-2 text-sm placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:focus:border-zinc-100 dark:focus:ring-zinc-100"
-              placeholder="••••••••"
-            />
-          </div>
-          <button
-            disabled={isLoading}
-            className="w-full rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
-          >
-            {isLoading ? "Signing in..." : "Sign In"}
-          </button>
-
-          {error && (
-            <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
-          )}
-        </form>
+        <LoginForm />
       </div>
     </div>
   );

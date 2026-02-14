@@ -11,7 +11,7 @@ if (!secret) {
   throw new Error("WP_HEADLESS_SECRET is missing from environment variables.");
 }
 
-export const client = new GraphQLClient(endpoint, {
+export const client = new GraphQLClient(`${endpoint}/graphql`, {
   headers: {
     "X-HEADLESS-SECRET": `Bearer ${secret}`,
   },
